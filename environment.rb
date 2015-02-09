@@ -12,9 +12,17 @@ require 'sinatra' unless defined?(Sinatra)
 
 configure do
   SiteConfig = OpenStruct.new(
-                 :title => 'Your Application Name',
-                 :author => 'Your Name',
-                 :url_base => 'http://localhost:4567/'
+                 :title => 'The App of all Apps',
+                 :author => 'John O\'Brien',
+                 :url_base => 'www.google.com',
+                 :test => 'testing?',
+                 
+                 :links => [
+                   { :name => "Google", :href => "http://www.google.com" },
+                   { :name => "Reel FX", :href => "http://www.reelfx.com" },
+                   { :name => "Yahoo", :href => "http://www.yahoo.com" },
+                   { :name => "Basecamp", :href => "http://www.basecamp.com" }
+                 ]
                )
 
   # load models

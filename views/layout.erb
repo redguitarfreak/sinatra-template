@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <title><%= @title || SiteConfig.title %></title>
+  <link href="'/main.css'" type="text/css" rel="stylesheet" />
+</head>
+<body>
+  <container>
+    <header>
+      <logo>
+        <h1><a href="/"><%= SiteConfig.title %></a></h1>
+      </logo>
+    </header>
+    <div>
+      <%= yield %>
+    </div>
+    <footer>
+      <p id="legal"><%= "&mdash; &copy; #{Time.now.strftime('%Y')} #{SiteConfig.author} &mdash;" %></p>
+    </footer>
+  </container>
+</body>
+</html>

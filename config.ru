@@ -3,6 +3,9 @@ require File.join(File.dirname(__FILE__), 'application')
 set :run, false
 set :environment, :production
 
+enable :sessions
+
+
 FileUtils.mkdir_p 'log' unless File.exists?('log')
 log = File.new("log/sinatra.log", "a+")
 $stdout.reopen(log)

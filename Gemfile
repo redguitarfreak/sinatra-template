@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'shotgun'
 gem 'sinatra', '>= 1.0'
 gem 'rake'
 gem 'data_mapper'
