@@ -1,13 +1,19 @@
 <html>
 <body>
-  <h2>Main Page</h2>
-    <p>Hi <%= name %>! It's cool that you <%= job %> for a living.</p>
-    <p>Thanks for taking the time to be you</p>
-    <p>Here is a <a href='/'><%= @link_text %></a>.</p>
-    <p><%= SiteConfig.test %></p>
-  
-  
+  <h2>Welcome Page</h2>
+    <p>Hi <%= name %>! It's cool that you drive a <%= car %>.</p>
+    <p>We're really excited to have you as part of our car community!</p>
+    <p><% SiteConfig.url_base %></p>
     
-  
-</body>
+    <p>Here's a list of the mods you have on your car:</p>
+    
+    <ul>
+    <% MYDB.mods.each do |mods| %>
+        <li><%= mods %></li>
+    <% end %>
+    </ul>
+    
+    <a href="/mods/new">Add mod</a>
+</body> 
 </html>
+

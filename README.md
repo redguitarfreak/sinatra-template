@@ -11,3 +11,7 @@ This is based off of 'sinatra-template' (https://github.com/redguitarfreak/sinat
 This will continue to grow and to shape up in to more and more as we go along
 
 Interactivity is key
+
+
+# For launching app, use:
+    -p $PORT -o $IP

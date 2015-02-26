@@ -5,17 +5,57 @@ require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-aggregates'
 require 'dm-migrations'
-require 'haml'
 require 'ostruct'
 
+
 require 'sinatra' unless defined?(Sinatra)
+  
+
+class Job
+  
+  attr_reader :title, :company
+  attr_accessor :wage, :hours
+  
+  def intialize(title, company)
+    @title = title
+    @company = company
+  end
+  
+end
+
+janitor = Job.new('Janitor', 'Acme')
+janitor.wage  #=> nil
+janitor.hours #=> nil
+
+janitor.hours = '$10/hr'
+janitor.hours #=> '$10/hr'
+
+class Db
+  
+  attr_accessor :mods, :customers
+  
+  def initialize(mods = nil, customer = nil, car = nil)
+    @mods = mods || []
+    @customer = customer || []
+    @car = car || []
+  end
+
+end
+
+MYDB = Db.new
+puts "!!!!! #{MYDB.inspect}"
+puts "***** #{MYDB.mods.inspect}"
+
+CARS = []
+
+
 
 configure do
   SiteConfig = OpenStruct.new(
                  :title => 'The App of all Apps',
                  :author => 'John O\'Brien',
                  :url_base => 'www.google.com',
-                 :test => 'testing?',
+                 :test => 'testing mcbizzle?',
                  
                  :links => [
                    { :name => "Google", :href => "http://www.google.com" },
@@ -23,6 +63,7 @@ configure do
                    { :name => "Yahoo", :href => "http://www.yahoo.com" },
                    { :name => "Basecamp", :href => "http://www.basecamp.com" }
                  ]
+                 
                )
 
   # load models
