@@ -37,6 +37,8 @@ post '/welcome' do
   puts MYDB.mods.inspect
   MYDB.mods << params[:mod]
   @mods = MYDB.mods
+  @car = MYDB.car
+  @name = MYDB.name
   puts params.inspect
   name = params[:name]
   car = params[:car]
@@ -44,7 +46,7 @@ post '/welcome' do
       redirect '/error'
     end
       # when to use locals? :locals => {'job' => job, 'name' => name, 'company' => company, 'years' => years}
-  erb :welcome, :locals => {'name' => name, 'car' => car, }#'stuff' => stuff}
+  erb :welcome, :locals => {'name' => name, 'car' => car, }
 end
 
 get '/mods/new' do
@@ -56,17 +58,6 @@ end
 
 get '/error' do
   erb :error
-end
-
-# rules for GET and POST on work duties
-get '/duties' do
-  @duties = DUTIES
-  puts DUTIES.inspect
-  erb :duties
-end
-
-get '/duties/new' do
-  erb :duties_new
 end
 
 post '/duties_new' do
@@ -83,23 +74,7 @@ post '/duties' do
 end
 
 
-# rules for GET and POST on names
-get '/cars' do
-  @car = CARS
-  puts CARS.inspect
-  erb :cars
-end
 
-get '/cars/new' do
-  erb :cars_new
-end
-
-post '/cars' do
-  CARS << params['car']
-  puts params.inspect
-  puts CARS.inspect
-  redirect '/cars'
-end
 
 
 get '/names/:name' do
@@ -118,5 +93,3 @@ end
 delete '/names/:name' do
 end
 
-# http://www.dallasrb.org/
-# added a tests folder, grabbed it off the web and would love to look through it?

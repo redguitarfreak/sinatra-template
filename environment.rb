@@ -9,34 +9,14 @@ require 'ostruct'
 
 
 require 'sinatra' unless defined?(Sinatra)
-  
-
-class Job
-  
-  attr_reader :title, :company
-  attr_accessor :wage, :hours
-  
-  def intialize(title, company)
-    @title = title
-    @company = company
-  end
-  
-end
-
-janitor = Job.new('Janitor', 'Acme')
-janitor.wage  #=> nil
-janitor.hours #=> nil
-
-janitor.hours = '$10/hr'
-janitor.hours #=> '$10/hr'
 
 class Db
   
-  attr_accessor :mods, :customers
+  attr_accessor :mods, :name, :car
   
-  def initialize(mods = nil, customer = nil, car = nil)
+  def initialize(mods = nil, name = nil, car = nil)
     @mods = mods || []
-    @customer = customer || []
+    @name = name || []
     @car = car || []
   end
 
@@ -46,7 +26,7 @@ MYDB = Db.new
 puts "!!!!! #{MYDB.inspect}"
 puts "***** #{MYDB.mods.inspect}"
 
-CARS = []
+]
 
 
 
